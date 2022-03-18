@@ -1,4 +1,4 @@
-Métodos de prueba de la clase "DequeNodeTest":
+﻿Métodos de prueba de la clase "DequeNodeTest":
 
 	- public void shouldReturnPreviousIsNullIfFirst():
 	Método que comprueba que al llamar al método getPrevious del primer nodo
@@ -11,5 +11,9 @@ Métodos de prueba de la clase "DequeNodeTest":
 	- public void shouldReturnTrueIfIsNotATerminalNode():
 	Método que comprueba que al llamar al método isNotATerminalNode devuelve
 	true si no es un nodo terminal (ni el primero ni el último).
-	
+
+
+
+
+Métodos de prueba de la clase "DoubleLinkedListQueueTest":
 	
