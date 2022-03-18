@@ -1,6 +1,6 @@
 package org.practica2mps.DoubleLinkedListQueue;
 
-public class DoubleLinkedListQueue implements DoubleEndedQueue{
+public class DoubleLinkedListQueue<T> implements DoubleEndedQueue{
 
 
     @Override

@@ -17,4 +17,10 @@ public class DequeNodeTest {
         assertNull(node2.getNext());
     }
 
+    @Test
+    public void shouldReturnTrueIfIsNotATerminalNode(){
+        DequeNode node = new DequeNode(new Object(),new Object(),new Object());
+        assertTrue(node.isNotATerminalNode());
+    }
+
 }
