@@ -1,0 +1,9 @@
+Métodos de prueba de la clase "DequeNodeTest":
+
+	- public void shouldReturnPreviousIsNullIfFirst():
+	Método que comprueba que al llamar al método getPrevious del primer nodo
+	(tiene como nodo previo un null), este devuelve null.
+	
+	- public void shouldReturnNextIsNullIfLast():
+	Método que comprueba que al llamar al método getNext del último nodo
+	(tiene como nodo siguiente un null), este devuelve null.
