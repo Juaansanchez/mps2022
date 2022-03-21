@@ -16,7 +16,12 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
     public DoubleLinkedListQueue(DequeNode first, DequeNode last) {
         this.first = first;
         this.last = last;
-        this.size = 1;
+        this.size = 0;
+
+        if(!first.equals(null))
+            this.size++;
+        if(!last.equals(null))
+            this.size++;
     }
 
 
@@ -27,6 +32,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
             this.size = 1;
         } else {
             this.last.setNext(node);
+            node.setPrevious(this.last);
             this.size++;
         }
         this.last = node;
@@ -39,6 +45,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
             this.size = 1;
         } else {
             this.first.setPrevious(node);
+            node.setNext(this.first);
             this.size++;
         }
         this.first = node;
@@ -152,9 +159,10 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
             System.out.println("Empty queue");
         } else { // La cola no esta vacia
             DequeNode aux = this.first;
-
-            while (aux != node) { // Busco si el nodo se encuentra en la cola
+            int i = 1;
+            while (aux.equals(node) && i < this.size) { // Busco si el nodo se encuentra en la cola
                 aux = aux.getNext();
+                i++;
             }
 
             if(aux != null){ // El nodo está en la cola

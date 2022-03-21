@@ -16,4 +16,16 @@
 
 
 Métodos de prueba de la clase "DoubleLinkedListQueueTest":
+
+funcionalidad a probar
+.- añadir
+    .--- checkAppendNodeNonEmptyList
+        .* arreglado metedo append
+    .--- checkAppendLeftNodeNonEmptyList
+        .* arreglado metedo appendLeft
+.- borrar
+    .--- checkDeleteFirstNodeListSizeGT2
+    .--- checkDeleteFirstNodeListSizeEquals2
+        .* arreglado contructor 2
+
 	
