@@ -14,14 +14,25 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
     }
 
     public DoubleLinkedListQueue(DequeNode first, DequeNode last) {
-        this.first = first;
-        this.last = last;
-        this.size = 0;
+        try{
+            if(first == null && last == null) {
+                this.size = 0;
+                this.first = null;
+                this.last = null;
+            }
+            else if(last == null) {
+                this.size = 1;
+                this.first = first;
+                this.last = this.first;
+            }else{
+                this.size = 2;
+                this.first = first;
+                this.last = last;
+            }
 
-        if(!first.equals(null))
-            this.size++;
-        if(!last.equals(null))
-            this.size++;
+
+        }catch (NullPointerException e){}
+
     }
 
 
@@ -54,10 +65,10 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
 
     @Override
     public void deleteFirst() {
-        if (this.size == 0) {
-            System.out.println("Empty queue");
+        if (size() == 0) {
+            throw new RuntimeException("Empty list");
         } else {
-            if (this.first == this.last) {
+            if (size == 1) {
                 this.first = null;
                 this.last = null;
             } else {
@@ -71,7 +82,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
     @Override
     public void deleteLast() {
         if (this.size == 0) {
-            System.out.println("Empty queue");
+            throw new RuntimeException("Empty list");
         } else {
             if (this.first == this.last) {
                 this.first = null;
@@ -88,8 +99,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
     public DequeNode peekFirst() {
         DequeNode node;
         if (this.size == 0) {
-            System.out.println("Empty queue");
-            node = null;
+            throw new RuntimeException("Empty list");
         } else {
             node = this.first;
         }
@@ -100,8 +110,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
     public DequeNode peekLast() {
         DequeNode node;
         if (this.size == 0) {
-            System.out.println("Empty queue");
-            node = null;
+            throw new RuntimeException("Empty list");
         } else {
             node = this.last;
         }
@@ -123,8 +132,7 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
         } else {
 
             if (this.size == 0) {
-                System.out.println("Empty queue");
-                node = null;
+                throw new RuntimeException("Empty list");
             } else {
                 int i = 0;
                 node = this.first;
@@ -140,15 +148,17 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
     @Override
     public DequeNode find(Object item) {
         DequeNode node;
-
         if (this.size == 0) {
-            System.out.println("Empty queue");
-            node = null;
+            throw new RuntimeException("Empty list");
         } else {
             node = this.first;
             while ((node != null) && !(node.getItem().equals(item))) {
                 node = node.getNext();
             }
+
+            if(node == null)
+                throw new RuntimeException("Item not found");
+
         }
         return node;
     }
@@ -156,11 +166,11 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
     @Override
     public void delete(DequeNode node) {
         if (this.size == 0) { //La cola esta vacia
-            System.out.println("Empty queue");
+            throw new RuntimeException("Empty list");
         } else { // La cola no esta vacia
             DequeNode aux = this.first;
-            int i = 1;
-            while (aux.equals(node) && i < this.size) { // Busco si el nodo se encuentra en la cola
+            int i = 0;
+            while (!(aux.getItem().equals(node.getItem())) && i < this.size) { // Busco si el nodo se encuentra en la cola
                 aux = aux.getNext();
                 i++;
             }
@@ -173,9 +183,10 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
                 }else{ // Elimino un nodo intermedio
                     aux.getNext().setPrevious(aux.getPrevious());
                     aux.getPrevious().setNext(aux.getNext());
+                    size--;
                 }
             }else{ // El nodo no está en la cola
-                System.out.println("The node is not in the queue.");
+                throw new RuntimeException("Node not in the list");
             }
         }
     }
