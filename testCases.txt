@@ -1,19 +1,94 @@
 ﻿Métodos de prueba de la clase "DequeNodeTest":
 
+	
+
 	- public void shouldReturnPreviousIsNullIfFirst():
-	Método que comprueba que al llamar al método getPrevious del primer nodo
-	(tiene como nodo previo un null), este devuelve null.
-	
+
+	Método que comprueba que el nodo previo al primer nodo de una lista es null.
+
 	- public void shouldReturnNextIsNullIfLast():
-	Método que comprueba que al llamar al método getNext del último nodo
-	(tiene como nodo siguiente un null), este devuelve null.
-	
+
+
+	Método que comprueba que el nodo siguiente al último nodo de una lista es null.
+
 	- public void shouldReturnTrueIfIsNotATerminalNode():
-	Método que comprueba que al llamar al método isNotATerminalNode devuelve
-	true si no es un nodo terminal (ni el primero ni el último).
 
-
+	Método que comprueba que un nodo es no terminal.
+	
 
 
 Métodos de prueba de la clase "DoubleLinkedListQueueTest":
+
+	
+
+	Funcionalidad a probar
+.
+	- añadir
+    
+
+		.--- checkAppendNodeNonEmptyList:
+
+    		Método que comprueba que un nodo se añade correctamente a una lista no vacía por el final.
+
+		.--- checkAppendLeftNodeNonEmptyList
+:
+		Método que comprueba que un nodo se añade correctamente a una lista no vacía por el principio.
+
+
+
+
+	- borrar
+    
+		.--- checkDeleteFirstNodeListSizeGreaterThan2:
+		Método que comprueba que el primer nodo de una lista de tamaño mayor que 2 se elimina correctamente. (deleteFirst)
+
+		.--- checkDeleteFirstNodeListSizeEquals2:
+		Método que comprueba que el primer nodo de una lista de tamaño 2 se elimina correctamente. (deleteFirst)
+
+		.--- checkDeleteLastNodeListSizeEquals2:
+		Método que comprueba que el último nodo de una lista de tamaño 2 se elimina correctamente. (deleteLast)
+
+		.--- checkDeleteLastNodeListSizeGreaterThan2:
+		Método que comprueba que el último nodo de una lista de tamaño mayor que 2 se elimina correcamente. (deleteLast)
+
+
+
+	- Otros métodos
+
+		.--- checkPeekFirst:
+		Método que comprueba que devuelve correctamente el primer elemento de la lista.
+
+		.--- checkPeekLast:
+		Método que comprueba que devuelve correctamente el último elemento de la lista.
+
+		.--- checkGetAtPosition1ShouldReturnNode2:
+		Método que comprueba que el método getAt al pasarle la posición 1, devuelve el segundo nodo de la lista.
+
+		.--- checkGetAtPositionShouldRaiseAnExceptionIfNumberUnder0:
+		Método que comprueba que el método getAt lanza una excepción si se le pasa como argumento un índice negativo.
+
+		.--- checkGetAtPositionShouldRaiseAnExceptionIfNumberGreaterThanSize:
+		Método que comprueba que el método getAt lanza una excepción si se le pasa como argumento un índice más grande que el tamaño de la lista.
+
+		.--- checkDeleteTheFirstNodeWhereListSizeEquals2:
+		Método que comprueba que el primer nodo de una lista de tamaño 2 se elimina correctamente. (delete)
+
+		.--- checkDeleteTheLastNodeWhereListSizeEquals2:
+		Método que comprueba que el último nodo de una lista de tamaño 2 se elimina correctamente. (delete)
+
+		.--- checkDeleteAMiddleNodeWhereListSizeGreaterThan2:
+		Método que comprueba que un nodo intermedio de una lista de tamaño mayor que 2 se elimina correctamente. (delete)
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
