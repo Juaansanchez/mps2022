@@ -185,8 +185,6 @@ public class DoubleLinkedListQueue<T> implements DoubleEndedQueue {
                     aux.getPrevious().setNext(aux.getNext());
                     size--;
                 }
-            }else{ // El nodo no está en la cola
-                throw new RuntimeException("Node not in the list");
             }
         }
     }

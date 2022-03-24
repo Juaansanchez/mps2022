@@ -1,6 +1,9 @@
 package org.practica2mps.DoubleLinkedListQueue;
 
 import org.junit.jupiter.api.*;
+
+import java.util.Comparator;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class DoubleLinkedListQueueTest {
@@ -265,7 +268,7 @@ public class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void checkDeletyeOnAEmptyListShouldRaiseAnException(){
+    public void checkDeleteOnAEmptyListShouldRaiseAnException(){
         DoubleLinkedListQueue list = new DoubleLinkedListQueue(null,null);
         assertThrows(RuntimeException.class,() -> list.delete(new DequeNode(new Object(),null,null)) );
     }
@@ -330,8 +333,6 @@ public class DoubleLinkedListQueueTest {
         assertEquals(sizeBefore,sizeAfter);
     }
 
-    
-
     @Test
     public void checkDeleteANodeThatIsNotInTheListShouldRaiseAnException(){
         DequeNode node1 = new DequeNode(new Object(),null,null);
@@ -358,15 +359,13 @@ public class DoubleLinkedListQueueTest {
     }
 
     @Test
-    public void checkFindAnObject(){
+    public void checkFindAnObjectOnANonEmptyList(){
         Object obj = new Object();
         DequeNode node1 = new DequeNode(obj,null,null);
         DoubleLinkedListQueue list = new DoubleLinkedListQueue(node1,null);
 
         assertEquals(obj,list.find(obj).getItem());
     }
-
-
 
 
 }

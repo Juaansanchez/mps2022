@@ -28,5 +28,26 @@ public class DequeNodeTest {
 
         assertTrue(node.isNotATerminalNode());
     }
+    
+    @Test
+    public void shouldToStringReturnANonNullString(){
+        DequeNode node = new DequeNode(new Object(),null,null);
+
+        assertNotNull(node.toString());
+
+    }
+
+    @Test
+    public void shouldGetItemReturnAnItemIfSetThatItemPreviously(){
+        DequeNode node = new DequeNode(null,null,null);
+        Object itemExpected = new Object();
+
+        node.setItem(itemExpected);
+
+        Object itemObtained = node.getItem();
+
+        assertEquals(itemExpected,itemObtained);
+
+    }
 
 }
